@@ -3,25 +3,20 @@ name: C Code Convention CI
 on: [push]
 
 jobs:
-  build:
-    name: cppcheck-test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-          
-      - name: cppcheck
-        uses: deep5050/cppcheck-action@main
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN}}
-          enable: all
-          force_language: c
-          force: enable
-          max_ctu_depth: 4
-          platform: unix64
-          std: c11
-          
-      - name: publish report    
-        uses: mikeal/publish-to-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH_NAME: 'main'
+    cpp-linter:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - uses: cpp-linter/cpp-linter-action@v2
+          id: linter
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            style: gcc
+            extensions: c,h,C,H
+            extra-args: -Wall -Wextra -pedantic -ansi
+            
+
+        - name: Fail fast?!
+          if: steps.linter.outputs.checks-failed > 0
+          run: echo "Some files failed the linting checks!"
