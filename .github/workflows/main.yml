@@ -3,9 +3,17 @@ name: C Code Convention CI
 on: [push]
 
 jobs:
-    c-linter:
-      name: c-linter
-      runs-on: ubuntu-latest
-      steps:
-        - name: c-linter
-          uses: pypygeek/action_test
+  build:
+    name: cppcheck-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+          
+      - name: cppcheck
+        uses: deep5050/cppcheck-action@main
+          
+        
+      - name: publish report    
+        uses: mikeal/publish-to-github-action@master
+        env:
+          BRANCH_NAME: 'main'
