@@ -1,0 +1,10 @@
+name: C Code Convention CI
+
+on: [push]
+
+jobs:
+  build-and-test:
+      runs-on: ubuntu-latest
+      steps:
+      - name: install cppunit
+        run: gcc -Wall -Wextra -pedantic -ansi -c ./*/*.c
