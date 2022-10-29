@@ -8,15 +8,11 @@ jobs:
   build-and-test:
       runs-on: ubuntu-latest
       steps:
-      - uses: cpp-linter/cpp-linter-action@main
-        id: linter
-        with:
-          style: gcc
-          extensions: c,h,C,H
-          version: 13
-          extra-args: -Wall -Wextra -pedantic -ansi
-          files-changed-only: false
-      - name: Fail fast?!
-        if: steps.linter.outputs.checks-failed != 0
-        run: |
-          echo "some linter checks failed. ${{ steps.linter.outputs.checks-failed }}"
+        - name: cppcheck
+          uses: deep5050/cppcheck-action@main
+          with:
+            enable: all
+            force_language: c
+            force: enable
+            max_ctu_depth: 4
+            std: c11
