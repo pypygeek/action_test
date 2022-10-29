@@ -13,6 +13,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           style: file
+          extensions: c,C,h,H
           extra-args: -Wall -Wextra -ansi -c
 
       - name: Fail fast?!
