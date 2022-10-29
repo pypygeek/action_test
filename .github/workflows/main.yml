@@ -1,6 +1,8 @@
 name: C Code Convention CI
 
-on: [push]
+on:
+  push:
+    paths-ignore: "src/**"
 
 jobs:
   build-and-test:
