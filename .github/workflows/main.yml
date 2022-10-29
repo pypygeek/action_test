@@ -6,12 +6,15 @@ on:
 
 jobs:
   build-and-test:
-      runs-on: ubuntu-18.04
+      runs-on: ubuntu-latest
       steps:
       - uses: cpp-linter/cpp-linter-action@main
         id: linter
         with:
-          style: file
+          style: gcc
+          extensions: c,h,C,H
+          version: 13
+          extra-args: -Wall -Wextra -pedantic -ansi
           files-changed-only: false
       - name: Fail fast?!
         if: steps.linter.outputs.checks-failed != 0
