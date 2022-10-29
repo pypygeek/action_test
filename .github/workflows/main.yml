@@ -10,6 +10,9 @@ jobs:
       steps:
         - name: cppcheck
           uses: deep5050/cppcheck-action@main
+          
+        - name: code check
+          uses: ./
           with:
             enable: all
             force_language: c
