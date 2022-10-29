@@ -1,8 +1,6 @@
 name: C Code Convention CI
 
-on:
-  push:
-    paths-ignore: "src/*"
+on: [push]
 
 jobs:
     c-linter:
@@ -10,4 +8,4 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: c-linter
-          uses: ArtificialAmateur/cpp-linter-action@maste
+          uses: pypygeek/action_test@maste
