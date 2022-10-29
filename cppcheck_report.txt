@@ -1,5 +1,2 @@
-test.cpp:4:5: error: Code 'std::cout' is invalid C code. Use --std or --language to configure the language. [syntaxError]
-    std::cout << "Hello World" << std::endl;
-    ^
 nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingIncludeSystem]
 
