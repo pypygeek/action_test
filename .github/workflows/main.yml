@@ -34,4 +34,4 @@ jobs:
             BRANCH_NAME: 'main' # your branch name goes here
             
         - name: check
-          run : cppcheck ./
+          run : cppcheck --enable=all --inconclusive --std=c++17 -I .
