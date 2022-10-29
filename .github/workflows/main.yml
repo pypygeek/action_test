@@ -6,5 +6,5 @@ jobs:
   build-and-test:
       runs-on: ubuntu-latest
       steps:
-      - name: install cppunit
+      - name: check ansi
         run: gcc -Wall -Wextra -pedantic -ansi -c ./*/*.c
