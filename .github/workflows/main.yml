@@ -13,8 +13,13 @@ jobs:
         uses: deep5050/cppcheck-action@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN}}
+          enable: all
+          force_language: c
+          force: enable
+          max_ctu_depth: 4
+          platform: unix64
+          std: c11
           
-        
       - name: publish report    
         uses: mikeal/publish-to-github-action@master
         env:
