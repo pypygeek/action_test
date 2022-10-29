@@ -8,4 +8,4 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: c-linter
-          uses: pypygeek/action_test@maste
+          uses: pypygeek/action_test@master
