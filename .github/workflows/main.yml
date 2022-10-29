@@ -7,4 +7,4 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - name: check ansi
-        run: find action_test/ -name *.c -exec gcc -Wall -Wextra -pedantic -ansi -c {} \;
+        run: find . -name *.c -exec gcc -Wall -Wextra -pedantic -ansi -c {} \;
